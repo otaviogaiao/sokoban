@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://oludxolj0fgk"]
+
+[ext_resource type="Texture2D" uid="uid://cry3r0bkmiuf0" path="res://assets/blue_panel.png" id="1_rx16p"]
+[ext_resource type="Script" path="res://Scenes/LevelButton/LevelButton.cs" id="2_03c2d"]
+[ext_resource type="LabelSettings" uid="uid://dt4d8t41tnpa1" path="res://assets/GM_white_32.tres" id="2_rmjyx"]
+[ext_resource type="Texture2D" uid="uid://ce64po3j4afno" path="res://assets/green_checkmark.png" id="3_y7c6k"]
+
+[node name="LevelButton" type="NinePatchRect" node_paths=PackedStringArray("_checkMark", "_levelLabel")]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+texture = ExtResource("1_rx16p")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("2_03c2d")
+_checkMark = NodePath("CheckMark")
+_levelLabel = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "00"
+label_settings = ExtResource("2_rmjyx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckMark" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 25.0
+offset_bottom = 25.0
+texture = ExtResource("3_y7c6k")

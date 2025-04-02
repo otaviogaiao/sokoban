@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=3 uid="uid://ds206jycppj1e"]
+
+[ext_resource type="Script" path="res://Scenes/Level/Level.cs" id="1_tmdf2"]
+[ext_resource type="TileSet" uid="uid://c42ucp3qlmsnm" path="res://Resources/Tiles.tres" id="1_uu3f3"]
+[ext_resource type="Texture2D" uid="uid://cmy7vmhqrvb4i" path="res://assets/Purple.png" id="2_uf847"]
+[ext_resource type="PackedScene" uid="uid://bmahjopkgrynx" path="res://Scenes/Player/Player.tscn" id="3_jdown"]
+[ext_resource type="PackedScene" uid="uid://3tlm08jt3rjm" path="res://Scenes/Hud/Hud.tscn" id="5_ut611"]
+[ext_resource type="PackedScene" uid="uid://dsrmdfus2myfn" path="res://Scenes/GameOverUi/GameOverUi.tscn" id="6_vfetp"]
+
+[node name="Level" type="Node2D" node_paths=PackedStringArray("_floorTiles", "_wallTiles", "_targetTiles", "_boxTiles", "_tilesHolder", "_player", "_camera2D")]
+script = ExtResource("1_tmdf2")
+_floorTiles = NodePath("Tiles/Floor")
+_wallTiles = NodePath("Tiles/Wall")
+_targetTiles = NodePath("Tiles/Targets")
+_boxTiles = NodePath("Tiles/Boxes")
+_tilesHolder = NodePath("Tiles")
+_player = NodePath("Player")
+_camera2D = NodePath("Camera2D")
+
+[node name="Tiles" type="Node2D" parent="."]
+visible = false
+
+[node name="Floor" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("1_uu3f3")
+
+[node name="Wall" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("1_uu3f3")
+
+[node name="Targets" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("1_uu3f3")
+
+[node name="Boxes" type="TileMapLayer" parent="Tiles"]
+tile_set = ExtResource("1_uu3f3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_uf847")
+stretch_mode = 1
+
+[node name="Player" parent="." instance=ExtResource("3_jdown")]
+visible = false
+position = Vector2(469, 276)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer2" instance=ExtResource("5_ut611")]
+visible = false
+
+[node name="GameOverUi" parent="CanvasLayer2" instance=ExtResource("6_vfetp")]
+visible = false

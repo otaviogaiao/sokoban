@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=3 uid="uid://3tlm08jt3rjm"]
+
+[ext_resource type="LabelSettings" uid="uid://dt4d8t41tnpa1" path="res://assets/GM_white_32.tres" id="1_6l6k3"]
+[ext_resource type="Script" path="res://Scenes/Hud/Hud.cs" id="1_hrepp"]
+
+[node name="Hud" type="Control" node_paths=PackedStringArray("_levelLabel", "_movesLabel", "_bestLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hrepp")
+_levelLabel = NodePath("MC/VBoxContainer/HB/LevelLabel")
+_movesLabel = NodePath("MC/VBoxContainer/HB2/MovesLabel")
+_bestLabel = NodePath("MC/VBoxContainer/HB3/BestLabel")
+
+[node name="MC" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MC"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="HB" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HB"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Level"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
+
+[node name="LevelLabel" type="Label" parent="MC/VBoxContainer/HB"]
+layout_mode = 2
+text = "01
+"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
+
+[node name="HB2" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HB2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Moves
+"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
+
+[node name="MovesLabel" type="Label" parent="MC/VBoxContainer/HB2"]
+layout_mode = 2
+text = "01
+"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
+
+[node name="HB3" type="HBoxContainer" parent="MC/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MC/VBoxContainer/HB3"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Best"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
+
+[node name="BestLabel" type="Label" parent="MC/VBoxContainer/HB3"]
+layout_mode = 2
+text = "01
+"
+label_settings = ExtResource("1_6l6k3")
+vertical_alignment = 1
